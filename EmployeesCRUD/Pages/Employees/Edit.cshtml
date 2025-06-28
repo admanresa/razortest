@@ -1,0 +1,72 @@
+﻿@page
+@model EmployeesCRUD.Pages.Employees.EditModel
+@{
+    ViewData["Title"] = "Editar Empleado";
+}
+
+<h2>Editar Empleado</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form method="post" class="border p-4 rounded shadow-sm bg-light">
+            <input type="hidden" asp-for="Employee.Id" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="row">
+                <!-- Columna izquierda -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Employee.Name"></label>
+                        <input asp-for="Employee.Name" class="form-control" />
+                        <span asp-validation-for="Employee.Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Employee.Email"></label>
+                        <input asp-for="Employee.Email" class="form-control" />
+                        <span asp-validation-for="Employee.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Employee.Department"></label>
+                        <input asp-for="Employee.Department" class="form-control" />
+                        <span asp-validation-for="Employee.Department" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Columna derecha -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Employee.EntryDate"></label>
+                        <input asp-for="Employee.EntryDate" class="form-control" type="date" />
+                        <span asp-validation-for="Employee.EntryDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group form-check mt-4">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Employee.IsActive" />
+                            @Html.DisplayNameFor(model => model.Employee.IsActive)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group text-center">
+                <input type="submit" value="Guardar" class="btn btn-success btn-lg" />
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <a asp-page="Index">Volver al listado</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,10 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Proyecto de Prueba";
+}
+
+<div class="text-center">
+    <!-- Aquí insertamos el ViewComponent -->
+    @await Component.InvokeAsync("EmployeeStats")
+</div>
